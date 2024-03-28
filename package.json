@@ -1,7 +1,7 @@
 {
   "name": "swiminstructorhubbe",
   "version": "1.0.0",
-  "description": "",
+  "description": "buy course, search teacher",
   "main": "src/index.js",
   "type": "module",
   "scripts": {
