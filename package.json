@@ -2,11 +2,14 @@
   "name": "swiminstructorhubbe",
   "version": "1.0.0",
   "description": "buy course, search teacher",
-  "main": "src/index.js",
+  "main": "index.js",
   "type": "module",
   "scripts": {
     "start": "nodemon --inspect src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "18.x"
   },
   "author": "Long",
   "license": "ISC",
