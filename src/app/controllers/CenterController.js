@@ -47,7 +47,7 @@ class CenterController {
         }
     }
 
-    // [PATH] /update/:id
+    // [PUT] /centers/:id
     async update(req, res) {
         try {
             const centerId = req.params.id;
@@ -67,7 +67,7 @@ class CenterController {
         }
     }
 
-    // [DELETE] /delete/:id
+    // [DELETE] /centers/:id
     async delete(req, res) {
         try {
             const centerId = req.params.id;
