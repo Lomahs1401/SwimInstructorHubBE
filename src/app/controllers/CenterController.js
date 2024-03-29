@@ -35,7 +35,7 @@ class CenterController {
     async store(req, res) {
         try {
             const newCenterData = req.body;
-            const newCenter = new Center(newCenterData);
+            const newCenter = new centerModel(newCenterData);
             await newCenter.save();
 
             res
