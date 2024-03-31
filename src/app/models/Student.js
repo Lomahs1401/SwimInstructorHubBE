@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 const studentSchema = new mongoose.Schema(
     {
         student_name: { type: String, default: "" },
+        image: { type: String, default: "" },
         weight: { type: Number, required: true, default: 0 },
         height: { type: Number, required: true, default: 0 },
         account_id: { type: mongoose.Schema.Types.ObjectId, ref: "Account" },
