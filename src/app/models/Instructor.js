@@ -2,8 +2,9 @@ import mongoose from 'mongoose';
 
 const instructorSchema = new mongoose.Schema(
     {
-        teacher_name: { type: String, default: "" },
+        instructor_name: { type: String, default: "" },
         description: { type: String, default: "" },
+        image: { type: String, default: "" },
         certificate: { type: String, default: "" },
         graduate: { type: String, default: "" },
         experience: { type: Number, default: 0 },
