@@ -29,35 +29,27 @@ class AuthController {
             const newAccount = new accountModel(req.body);
             await newAccount.save();
 
+            let user
+
             if (type === 0) {
                 // Role Student
-                const newStudent = new studentModel({ account_id: newAccount._id });
-                await newStudent.save();
+                user = new studentModel({ account_id: newAccount._id });
+                await user.save();
             } else if (type === 1) {
                 // Role Instructor
-                const newInstructor = new instructorModel({ account_id: newAccount._id });
-                await newInstructor.save();
+                user = new instructorModel({ account_id: newAccount._id });
+                await user.save();
             }
-
-            const result = await accountModel.aggregate([
-                {
-                    $match: {
-                        _id: newAccount._id,
-                    },
-                },
-                {
-                    $lookup: {
-                        from: type === 0 ? "students" : "instructors",
-                        localField: "_id",
-                        foreignField: "account_id",
-                        as: type === 0 ? "student_info" : "instructor_info",
-                    },
-                },
-            ])
 
             res
                 .status(200)
-                .json({ message: "Registration successful", data: result });
+                .json({ 
+                    message: "Registration successful", 
+                    data: { 
+                        ...newAccount.toObject(), 
+                        [type === 0 ? 'student_info' : 'instructor_info']: user 
+                    } 
+                });
         } catch (error) {
             console.log(error)
             res.status(500).json({ error: "Registration failed" });
