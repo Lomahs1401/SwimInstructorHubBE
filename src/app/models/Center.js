@@ -18,6 +18,6 @@ const centerSchema = new mongoose.Schema(
     }
 );
 
-const centerModel = mongoose.model('centers', centerSchema);
+const centerModel = mongoose.model('Center', centerSchema);
 
 export default centerModel;
